@@ -1,6 +1,9 @@
-import { EventEmitter } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { Recipe } from './recipe.model';
 import { Ingredient } from '../shared/ingredient.model';
+import {ShoppingListService} from '../shopping-list/shopping-list.service';
+
+@Injectable()
 
 export class RecipeService {
 
@@ -19,15 +22,22 @@ export class RecipeService {
             'What else dou need?', 
             'https://www.chatelaine.com/wp-content/uploads/2012/06/Fresh-Italian-burger-0-l.jpg',
             [
-                new Ingredient('Buns', 2),
+                // new Ingredient('Buns', 2),
                 new Ingredient('Meat', 1),
                 new Ingredient('Red Onions', 1),
                 new Ingredient('Tomato Slices', 2)
             ])
       ];
 
+      constructor(private slService: ShoppingListService){}
+
       getRecipes() {
           return this.recipes.slice();
+      }
+
+      addIngredientsToShoppingList(ingredients: Ingredient[]) {
+          this.slService.addIngredients(ingredients);
+
       }
 
 }
