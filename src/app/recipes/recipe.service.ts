@@ -7,18 +7,23 @@ export class RecipeService {
     recipeSelected = new EventEmitter<Recipe>();
     private recipes: Recipe[] = [
         new Recipe(
-            'A test recipe', 
-            'this is a test', 
-            'https://www.eatwell101.com/wp-content/uploads/2019/04/chicken-and-asparagus-skillet-recipe-2.jpg',
+            'Kinder Menu', 
+            'super-tasty', 
+            'https://makethebestofeverything.com/wp-content/uploads/2019/04/steak-and-chimicurri-loaded-french-fries.jpg',
             [
                 new Ingredient('Meat', 1),
                 new Ingredient('French Fries', 20)
             ]),
         new Recipe(
-            'A second recipe', 
-            'this is a test', 
-            'https://www.eatwell101.com/wp-content/uploads/2019/04/chicken-and-asparagus-skillet-recipe-2.jpg',
-            [])
+            'Big Delicious Burger', 
+            'What else dou need?', 
+            'https://www.chatelaine.com/wp-content/uploads/2012/06/Fresh-Italian-burger-0-l.jpg',
+            [
+                new Ingredient('Buns', 2),
+                new Ingredient('Meat', 1),
+                new Ingredient('Red Onions', 1),
+                new Ingredient('Tomato Slices', 2)
+            ])
       ];
 
       getRecipes() {
